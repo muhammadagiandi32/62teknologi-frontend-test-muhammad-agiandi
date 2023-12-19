@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from './reportWebVitals';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
+import Dashboard from './pages/Dashboard';
+import InsertData from './pages/InsertData';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+axios.defaults.withCredentials = true;
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+    {/* <Provider store={store}> */}
+      <Routes>
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/insert" element={<InsertData />} />
+      </Routes>
+    {/* </Provider> */}
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
